@@ -2,40 +2,47 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserRay : MonoBehaviour
+
+[RequireComponent(typeof(LineRenderer))]
+
+public class LaserRay: MonoBehaviour
 {
-    [SerializeField] private float defDistanceRay = 100;
-    public Transform laserFirePoint;
-    public LineRenderer m_lineRenderer;
-    Transform m_transform;
+    public int reflections;
+    public float maxLength;
+
+    private LineRenderer lineRenderer;
+    private Ray ray;
+    private RaycastHit hit;
+    private Vector2 direction;
 
     private void Awake()
     {
-        m_transform = GetComponent<Transform>();
+        lineRenderer = GetComponent<LineRenderer>();
     }
 
     private void Update()
     {
-        ShootLaser();
+        ray = new Ray(transform.position, transform.right);
+        lineRenderer.positionCount = 1;
+        lineRenderer.SetPosition(0, transform.position);
+        float remainingLength = maxLength;
 
-    }
-
-    void ShootLaser()
-    {
-        if (Physics2D.Raycast(m_transform.position, transform.right))
+        for (int i = 0; i < reflections; i++)
         {
-            RaycastHit2D _hit = Physics2D.Raycast(m_transform.position, transform.right);
-            Draw2DRay(laserFirePoint.position, _hit.point);
+            if (Physics.Raycast(ray.origin, ray.direction, out hit, remainingLength))
+            {
+                lineRenderer.positionCount += 1;
+                lineRenderer.SetPosition(lineRenderer.positionCount - 1, hit.point);
+                remainingLength -= Vector2.Distance(ray.origin, hit.point);
+                ray = new Ray(hit.point, Vector2.Reflect(ray.direction, hit.normal));
+                if (hit.collider.tag != "Mirror")
+                    break;
+            }
+            else
+            {
+                lineRenderer.positionCount += 1;
+                lineRenderer.SetPosition(lineRenderer.positionCount - 1, ray.origin + ray.direction * remainingLength);
+            }
         }
-        else
-        {
-            Draw2DRay(laserFirePoint.position, laserFirePoint.transform.right * defDistanceRay);
-        }
-    }
-
-    void Draw2DRay(Vector2 startPos, Vector2 endPos)
-    {
-        m_lineRenderer.SetPosition(0, startPos);
-        m_lineRenderer.SetPosition(1, endPos);
     }
 }
