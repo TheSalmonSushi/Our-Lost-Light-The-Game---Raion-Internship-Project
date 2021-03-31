@@ -12,8 +12,11 @@ public class Control : MonoBehaviour
     [SerializeField] protected KeyCode moveUp; //keybind untuk gerak ke atas
     [SerializeField] protected KeyCode moveDown; //keybind untuk gerak ke bawah
     [SerializeField] protected float speed; //angka kecepatan pergerakan object
+    [SerializeField] protected float RotationSpeed = 90;
     [SerializeField] protected Vector2 direction;
+    [SerializeField] protected Vector3 RotDir;
     private float x, y, z;
+    
 
 
     // Start is called before the first frame update
@@ -32,13 +35,15 @@ public class Control : MonoBehaviour
     {
         if (Input.GetKey(whichObject) && Input.GetKey(rotateLeft))
         {
-            z++;
+            //z++;
             Rotate();
+            RotDir.z = 1;
         }
         if (Input.GetKey(whichObject) && Input.GetKey(rotateRight))
         {
-            z--;
+            //z--;
             Rotate();
+            RotDir.z = -1;
         }
 
         if (Input.GetKey(whichObject) && Input.GetKey(moveLeft))
@@ -68,7 +73,9 @@ public class Control : MonoBehaviour
 
     public void Rotate()
     {
-        transform.localRotation = Quaternion.Euler(0, 0, z);
+       // transform.localRotation = Quaternion.Euler(0, 0, z) ; //Tambahin delta time woiii!!!!!
+        float angle = RotationSpeed * Time.deltaTime;
+        transform.rotation *= Quaternion.AngleAxis(angle, RotDir);
     }
 
     public void Move()

@@ -1,12 +1,19 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 [RequireComponent(typeof(LineRenderer))]
 
-public class LaserRay: MonoBehaviour
+public class LaserRay : MonoBehaviour
 {
+    public int iLevelToLoad;
+    public string sLevelToLoad;
+
+    public bool useIntegerToLoadLevel = false;
+
+
     public int reflections;
     public float maxLength;
 
@@ -35,13 +42,35 @@ public class LaserRay: MonoBehaviour
                 lineRenderer.SetPosition(lineRenderer.positionCount - 1, hit.point);
                 remainingLength -= Vector2.Distance(ray.origin, hit.point);
                 ray = new Ray(hit.point, Vector2.Reflect(ray.direction, hit.normal));
-                if (hit.collider.tag != "Mirror")
+                if (hit.collider.tag != "Mirror" && hit.collider.tag != "Sphere")
+                {
                     break;
+                }
+                if (hit.collider.tag == "Sphere")
+                {
+                    LoadScene();
+                }
+
+
             }
             else
             {
                 lineRenderer.positionCount += 1;
                 lineRenderer.SetPosition(lineRenderer.positionCount - 1, ray.origin + ray.direction * remainingLength);
+            }
+
+        }
+
+        void LoadScene()
+        {
+            if (useIntegerToLoadLevel)
+            {
+                SceneManager.LoadScene(iLevelToLoad);
+            }
+
+            else
+            {
+                SceneManager.LoadScene(sLevelToLoad);
             }
         }
     }
