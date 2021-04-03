@@ -10,7 +10,6 @@ public class LaserRay : MonoBehaviour
 {
     public int iLevelToLoad;
     public string sLevelToLoad;
-
     public bool useIntegerToLoadLevel = false;
 
 

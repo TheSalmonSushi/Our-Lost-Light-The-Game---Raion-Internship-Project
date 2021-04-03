@@ -12,7 +12,7 @@ public class CountdownTimer1 : MonoBehaviour
 
 
     float CurrentTime = 0f;
-    float StartingTime = 5f;
+    float StartingTime = 30f;
 
     [SerializeField] Text countdownText ;
 
