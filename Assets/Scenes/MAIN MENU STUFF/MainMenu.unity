@@ -914,6 +914,7 @@ GameObject:
   - component: {fileID: 1838789014}
   - component: {fileID: 1838789013}
   - component: {fileID: 1838789015}
+  - component: {fileID: 1838789016}
   m_Layer: 0
   m_Name: BG AUDIO
   m_TagString: Untagged
@@ -933,7 +934,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 60c94b79ab0e5314784b319e55dc5a08, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.18
+  m_Volume: 0.83
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -1041,6 +1042,18 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1731c005abf3bf64e93225b7e0324100, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1838789016
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1838789012}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa716fe97c417de40b7f93a44b4f1f55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &2084757418
