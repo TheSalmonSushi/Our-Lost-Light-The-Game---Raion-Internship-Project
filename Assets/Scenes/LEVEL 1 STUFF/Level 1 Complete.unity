@@ -728,7 +728,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   iLevelToLoad: 4
-  sLevelToLoad: 
+  sLevelToLoad: NextMenu 1
   useIntegerToLoadLevel: 1
   countdownText: {fileID: 1150639702}
 --- !u!114 &1150639702
