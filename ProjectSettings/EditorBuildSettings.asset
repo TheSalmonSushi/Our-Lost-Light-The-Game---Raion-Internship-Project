@@ -15,9 +15,6 @@ EditorBuildSettings:
     path: Assets/Scenes/LEVEL 1 STUFF/Level One.unity
     guid: df0c96cb96b09334e9c1eed297eb4b1f
   - enabled: 1
-    path: Assets/Scenes/LEVEL 1 STUFF/Level 1 Complete.unity
-    guid: 524ea7c9918c50b4da30a0dd0a1b1317
-  - enabled: 1
     path: Assets/Scenes/LEVEL 1 STUFF/NextMenu 1.unity
     guid: f39745bb1c08bd84aa4fadb84f8f129a
   - enabled: 1

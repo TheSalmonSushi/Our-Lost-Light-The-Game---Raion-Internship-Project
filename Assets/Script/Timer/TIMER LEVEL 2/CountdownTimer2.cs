@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 
+
 public class CountdownTimer2 : MonoBehaviour
 {
     public int iLevelToLoad;
@@ -12,7 +13,7 @@ public class CountdownTimer2 : MonoBehaviour
 
 
     float CurrentTime = 0f;
-    float StartingTime = 5f;
+    float StartingTime = 50f;
 
     [SerializeField] Text countdownText;
 
