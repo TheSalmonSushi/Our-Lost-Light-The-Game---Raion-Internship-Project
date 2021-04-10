@@ -73,13 +73,29 @@ public class Control : MonoBehaviour
 
     public void Rotate()
     {
-       // transform.localRotation = Quaternion.Euler(0, 0, z) ; //Tambahin delta time woiii!!!!!
+       // transform.localRotation = Quaternion.Euler(0, 0, z) ;
         float angle = RotationSpeed * Time.deltaTime;
         transform.rotation *= Quaternion.AngleAxis(angle, RotDir);
     }
 
     public void Move()
     {
-        transform.Translate(direction * speed * Time.deltaTime);
+        //transform.Translate(direction * speed * Time.deltaTime);
+        if(direction.x == 1)
+        {
+            transform.position += Vector3.right * speed * Time.deltaTime;
+        }
+        if(direction.x == -1)
+        {
+            transform.position += Vector3.left * speed * Time.deltaTime;
+        }
+        if(direction.y == 1)
+        {
+            transform.position += Vector3.up * speed * Time.deltaTime;
+        }
+        if(direction.y == -1)
+        {
+            transform.position += Vector3.down * speed * Time.deltaTime;
+        }
     }
 }

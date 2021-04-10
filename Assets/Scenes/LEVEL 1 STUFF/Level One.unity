@@ -1562,9 +1562,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d62be91536cacda459dbba2edeb29093, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  iLevelToLoad: 1
-  sLevelToLoad: Level 1 Complete
-  useIntegerToLoadLevel: 0
+  iLevelToLoad: 7
+  sLevelToLoad: 
+  useIntegerToLoadLevel: 1
   countdownText: {fileID: 1179036257}
 --- !u!114 &1179036257
 MonoBehaviour:
