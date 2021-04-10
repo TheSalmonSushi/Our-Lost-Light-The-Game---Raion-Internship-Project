@@ -2649,8 +2649,8 @@ MonoBehaviour:
   iLevelToLoad: 3
   sLevelToLoad: 
   useIntegerToLoadLevel: 1
-  reflections: 4
-  maxLength: 100
+  reflections: 3
+  maxLength: 1000
 --- !u!120 &1406338881
 LineRenderer:
   m_ObjectHideFlags: 0

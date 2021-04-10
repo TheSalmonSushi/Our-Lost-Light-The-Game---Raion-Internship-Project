@@ -4532,7 +4532,7 @@ MonoBehaviour:
   iLevelToLoad: 10
   sLevelToLoad: 
   useIntegerToLoadLevel: 1
-  reflections: 6
+  reflections: 5
   maxLength: 1000
 --- !u!120 &1843433286
 LineRenderer:
